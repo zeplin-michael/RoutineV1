@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS exercises;
-DROP TABLE IF EXISTS routines;
-DROP TABLE IF EXISTS routine_exercises;
-DROP TABLE IF EXISTS user_exercise_logs;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS exercises CASCADE;
+DROP TABLE IF EXISTS routines CASCADE;
+DROP TABLE IF EXISTS routine_exercises CASCADE;
+DROP TABLE IF EXISTS user_exercise_logs CASCADE;
 
 CREATE TABLE users (
   id serial PRIMARY KEY,
@@ -26,8 +26,8 @@ CREATE TABLE routines (
   id serial PRIMARY KEY,
   user_id integer NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   name varchar(30) UNIQUE,
-  description text(50),
-  created_at timestamp
+  description varchar(100),
+  created_at date
 );
 
 CREATE TABLE routine_exercises (
