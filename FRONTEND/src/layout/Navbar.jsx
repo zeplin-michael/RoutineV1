@@ -7,11 +7,21 @@ export default function Navbar() {
   return (
     <header id="navbar">
       <nav>
-        {token ? (
-          <button onClick={logout}>Log out</button>
-        ) : (
-          <NavLink to="/login">Log in</NavLink>
-        )}
+        <div className="brand">
+          <NavLink id="brand" to="/">
+            Athletis
+          </NavLink>
+        </div>
+        <div className="additional links">
+          <NavLink to="/about">About</NavLink>
+
+          <NavLink to="/features">Features</NavLink>
+          {token ? (
+            <button onClick={logout}>Log out</button>
+          ) : (
+            <NavLink to="/login">Log in</NavLink>
+          )}
+        </div>
       </nav>
     </header>
   );
